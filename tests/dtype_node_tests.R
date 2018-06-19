@@ -10,33 +10,54 @@ test_that(desc = "Test for the dtype_node constructor.",
           expect_error(null_id_node <- dtype_node(id = NULL),
                        info = "The dtype_node constructor requires the argument for the node id to be a numeric type"),
           expect_equal(get_id(tenth_node),10),
+          
           apple_node <- dtype_node(id = 1,
                                    properties = list(property_names = c("name"),
                                                      values = c("apple"))),
-          expect_equal(get_property(apple_node,"name"), "apple"))
+          expect_equal(get_property(apple_node,"name"), "apple")
+)
 
 test_that(desc = "Tests for get_id",
           third_node <- dtype_node(id = 3),
           expect_type(get_id(third_node), "numeric"),
           expect_equal(get_id(third_node), 3)
-          )
+)
 
 test_that(desc = "Tests for get_properties",
           tenth_node <- dtype_node(id = 10),
           expect_type(get_properties(tenth_node), "list"),
           expect_is(get_properties(tenth_node),NULL),
           shiny_bannana_bunch <- dtype_node(id = 1,
-                                      properties = sbb_properties <- list(property_names = c("name",
-                                                          "color",
-                                                          "shape",
-                                                          "number"),
-                                                        values = c("yellow",
-                                                                   "curved",
-                                                                   "six")
-                                                        )
-                                      ),
+                                            properties = sbb_properties <- list(property_names = c("name",
+                                                                                                   "color",
+                                                                                                   "shape",
+                                                                                                   "number"),
+                                                                                values = c("banana",
+                                                                                           "yellow",
+                                                                                           "curved",
+                                                                                           "six")
+                                                                            )
+                                ),
           expect_equal(get_properties(shiny_banana_bunch), sbb_properties)
-          )
+)
+
+test_that(desc = "Tests for get_property",
+          shiny_bannana_bunch <- dtype_node(id = 1,
+                                            properties = sbb_properties <- list(property_names = c("name",
+                                                                                                   "color",
+                                                                                                   "shape",
+                                                                                                   "number"),
+                                                                                values = c("banana",
+                                                                                           "yellow",
+                                                                                           "curved",
+                                                                                           "six")
+                                                                            )
+                                ),
+          expect_equal(get_property(shinny_bannana_bunch,"name"), "banana"),
+          expect_equal(get_property(shinny_bannana_bunch,"color"), "yellow"),
+          expect_equal(get_property(shinny_bannana_bunch,"shape"), "curved"),
+          expect_equal(get_property(shinny_bannana_bunch,"number"), "six")
+)
 
 
 
