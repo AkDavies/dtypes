@@ -27,7 +27,7 @@ test_that(desc = "Tests for get_properties",
           tenth_node <- dtype_node(id = 10),
           expect_type(get_properties(tenth_node), "list"),
           expect_is(get_properties(tenth_node),NULL),
-          shiny_bannana_bunch <- dtype_node(id = 1,
+          shiny_banana_bunch <- dtype_node(id = 1,
                                             properties = sbb_properties <- list(property_names = c("name",
                                                                                                    "color",
                                                                                                    "shape",
@@ -42,7 +42,7 @@ test_that(desc = "Tests for get_properties",
 )
 
 test_that(desc = "Tests for get_property",
-          shiny_bannana_bunch <- dtype_node(id = 1,
+          shiny_banana_bunch <- dtype_node(id = 1,
                                             properties = sbb_properties <- list(property_names = c("name",
                                                                                                    "color",
                                                                                                    "shape",
@@ -53,10 +53,10 @@ test_that(desc = "Tests for get_property",
                                                                                            "six")
                                                                             )
                                 ),
-          expect_equal(get_property(shinny_bannana_bunch,"name"), "banana"),
-          expect_equal(get_property(shinny_bannana_bunch,"color"), "yellow"),
-          expect_equal(get_property(shinny_bannana_bunch,"shape"), "curved"),
-          expect_equal(get_property(shinny_bannana_bunch,"number"), "six")
+          expect_equal(get_property(shiny_banana_bunch,"name"), "banana"),
+          expect_equal(get_property(shiny_banana_bunch,"color"), "yellow"),
+          expect_equal(get_property(shiny_banana_bunch,"shape"), "curved"),
+          expect_equal(get_property(shiny_banana_bunch,"number"), "six")
 )
 
 
