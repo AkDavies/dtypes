@@ -1,6 +1,5 @@
 dtype_node <- setClass("dtype_node",
-                       slots = c(id = "numeric",
-                                 properties = "list")
+                       slots = c(properties = "list")
                        )
 
 # setMethod("initialize",
@@ -10,11 +9,6 @@ dtype_node <- setClass("dtype_node",
 #           }
 #           )
 
-setGeneric("get_id", function(object, ...) standardGeneric("get_id"))
-setMethod("get_id",
-          signature(object = "dtype_node"),
-          function(object) object@id
-          )
 
 setGeneric("get_properties", function(object, ...) standardGeneric("get_properties"))
 setMethod("get_properties",
@@ -29,4 +23,10 @@ setMethod("get_property",
               properties_list <- object@properties
               property <- getElement(properties_list, property_name)
           }
+          )
+
+setGeneric("get_id", function(object, ...) standardGeneric("get_id"))
+setMethod("get_id",
+          signature(object = "dtype_node"),
+          get_property(object,"id")
           )
